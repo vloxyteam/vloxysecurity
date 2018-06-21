@@ -21,6 +21,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="{{ URL::asset('adminlte/css/skins/skin-blue.min.css')}}">
+  <!-- Configuracion de ARCGIS. -->
+  <link rel="stylesheet" href="https://js.arcgis.com/3.24/esri/css/esri.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/3.24/dijit/themes/nihilo/nihilo.css">  
+  <script src="https://js.arcgis.com/3.24/"></script> 
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -406,5 +410,9 @@ desired effect
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
+
+<!--SCRIPT PARA 
+    ARCGIS. -->
+  
 </body>
 </html>

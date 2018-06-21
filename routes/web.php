@@ -18,6 +18,12 @@ Route::get('/cameras','CamerasController@index');
 Route::get('/camera/{cameraId?}','CamerasController@show');
 Route::get('/camera/{cameraId?}/edit','CamerasController@edit');
 Route::post('/camera/{cameraId?}/delete','CamerasController@destroy');
+Route::get('/lprMaps','lprMapsController@index');
+
+
+
+
+
 Route::get('sendemail', function(){    
     $data=array('name'=>'Vloxy Security',);
     Mail::send('emails.welcome',$data, function($message)
@@ -25,6 +31,6 @@ Route::get('sendemail', function(){
         $message->from('eviliopolo79@gmail.com','vloxy security');
         $message->to('eviliopolo79@gmail.com')->subject('test mail vloxy security');
     });
-    return 'Mail enviado correctamente';
+    return 'Mail enviado correctamente'; 
 });
 

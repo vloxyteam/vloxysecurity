@@ -14,6 +14,8 @@
                 </div>
             @endif
             <div class="clearfix"></div>
+
+            <a href="{{ URL::previous() }}">Volver</a>
         </div>
     </div>
 @endsection

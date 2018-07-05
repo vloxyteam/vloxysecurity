@@ -51,28 +51,31 @@ class licenseplateController extends Controller
     public function show(Request $request)
     {        
         $placa = $request->get('placatxt');
-        $licenseplate = LicensePlate::where('licensePlateText', '=', $placa)->firstOrFail();
-        $slug= uniqid();
-        $cameraid= $request->cameras;        
-        $camera = Camera::where('cameraid', '=', $cameraid)->firstOrFail();        
+        $licenseplate = LicensePlate::where('licensePlateText', '=', $placa)->first();
+        if ($licenseplate){
+            $slug= uniqid();
+            $cameraid= $request->cameras;        
+            $camera = Camera::where('cameraid', '=', $cameraid)->firstOrFail();        
 
-        $NotificationLpr = new NotificationLpr(array(
-            'slug' => $slug,
-            'licensePlateText' => $licenseplate->licensePlateText,            
-            'Description' => $licenseplate->Description,
-            'cameraid' => $cameraid,
-            'longitud' =>$camera->longitud,
-            'latitud' => $camera->latitud,
-            'centrocomercial'=> $camera->centrocomercial,
-            'descamara'=> $camera->dcamara,
-            'direccionCC'=> $camera->direccion,
-        ));
+            $NotificationLpr = new NotificationLpr(array(
+                'slug' => $slug,
+                'licensePlateText' => $licenseplate->licensePlateText,            
+                'Description' => $licenseplate->Description,
+                'cameraid' => $cameraid,
+                'longitud' =>$camera->longitud,
+                'latitud' => $camera->latitud,
+                'centrocomercial'=> $camera->centrocomercial,
+                'descamara'=> $camera->dcamara,
+                'direccionCC'=> $camera->direccion,
+            ));
 
-        $NotificationLpr->save();  
-        $notificationLpr = NotificationLpr::whereSlug($slug)->firstOrFail();        
+            $NotificationLpr->save();  
+            $notificationLpr = NotificationLpr::whereSlug($slug)->firstOrFail();        
 
-        event(new eventTrigger($notificationLpr)); 
+            event(new eventTrigger($notificationLpr));             
+        }
         return view('licenseplate.show',compact('licenseplate'));
+        
     }
 
     /**

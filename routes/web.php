@@ -36,7 +36,7 @@ Route::get('/fireEvent',function(){
     //    'id' => 1,            
     //    'licensePlateText' => 'ABC-123',        
     //));
-    event(new eventTrigger('ABC-123'));   
+    event(new eventTrigger('ABC-987'));   
     return 'Placa enviada';
 });
 

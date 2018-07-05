@@ -7,7 +7,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>VLoxy Security</title>
+  
+  
+  
+
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="{{ URL::asset('adminlte/bootstrap/dist/css/bootstrap.min.css')}}">
@@ -21,10 +26,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="{{ URL::asset('adminlte/css/skins/skin-blue.min.css')}}">
-  <!-- Configuracion de ARCGIS. -->
+  <!-- Configuracion de ARCGIS. 
   <link rel="stylesheet" href="https://js.arcgis.com/3.24/esri/css/esri.css">
-  <link rel="stylesheet" href="https://js.arcgis.com/3.24/dijit/themes/nihilo/nihilo.css">  
-  <script src="https://js.arcgis.com/3.24/"></script> 
+  <link rel="stylesheet" href="https://js.arcgis.com/3.24/dijit/themes/nihilo/nihilo.css"> 
+  -->
+  
+  <!--
+  <link rel="stylesheet" href="https://js.arcgis.com/4.7/esri/css/main.css">
+      -->
+      
+  
+  
+  
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,6 +49,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  
+  
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -58,8 +73,10 @@ desired effect
 |---------------------------------------------------------|
 -->
 <body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
 
+<div class="wrapper">
+ <div id="app">
+ <notification-alert></notification-alert>
   <!-- Main Header -->
   <header class="main-header">
 
@@ -79,75 +96,30 @@ desired effect
       </a>
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
+         
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
-          <li class="dropdown messages-menu">
-            <!-- Menu toggle button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">4</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 4 messages</li>
-              <li>
-                <!-- inner menu: contains the messages -->
-                <ul class="menu">
-                  <li><!-- start message -->
-                    <a href="#">
-                      <div class="pull-left">
-                        <!-- User Image -->
-                        <img src="{{ URL::asset('adminlte/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
-                      </div>
-                      <!-- Message title and timestamp -->
-                      <h4>
-                        Support Team
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                      </h4>
-                      <!-- The message -->
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <!-- end message -->
-                </ul>
-                <!-- /.menu -->
-              </li>
-              <li class="footer"><a href="#">See All Messages</a></li>
-            </ul>
-          </li>
+          
           <!-- /.messages-menu -->
 
           <!-- Notifications Menu -->
-          <li class="dropdown notifications-menu">
-            <!-- Menu toggle button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
-              <li>
-                <!-- Inner Menu: contains the notifications -->
-                <ul class="menu">
-                  <li><!-- start notification -->
-                    <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                    </a>
-                  </li>
-                  <!-- end notification -->
-                </ul>
-              </li>
-              <li class="footer"><a href="#">View all</a></li>
-            </ul>
-          </li>
+          <Notification-lpr></Notification-lpr>
+          <!-- end notification -->
+          
+              
+          
+           
+          
+
           <!-- Tasks Menu -->
           <li class="dropdown tasks-menu">
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-flag-o"></i>
-              <span class="label label-danger">9</span>
+              <span class="label label-danger">0</span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have 9 tasks</li>
+              <li class="header">Espacio reservado 0 items</li>
               <li>
                 <!-- Inner menu: contains the tasks -->
                 <ul class="menu">
@@ -155,7 +127,7 @@ desired effect
                     <a href="#">
                       <!-- Task title and progress text -->
                       <h3>
-                        Design some buttons
+                        Espacio reservado
                         <small class="pull-right">20%</small>
                       </h3>
                       <!-- The progress bar -->
@@ -285,15 +257,7 @@ desired effect
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Acerca
-        <small>Description del acerca de...</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
-      </ol>
+    <section class="content-header">      
     </section>
 
     <!-- Main content -->
@@ -395,7 +359,9 @@ desired effect
   <!-- Add the sidebar's background. This div must be placed
   immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
+  </div> <!--Fin app -->
 </div>
+
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
@@ -407,12 +373,30 @@ desired effect
 <!-- AdminLTE App -->
 <script src="{{ URL::asset('adminlte/js/adminlte.min.js')}}"></script>
 
+<script src="{{ URL::asset('js/app.js')}}"></script>
+
+
+
+
+
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
 
 <!--SCRIPT PARA 
+<script src="https://js.arcgis.com/3.24/"></script>
+    <script>
+      var map;
+        require(["esri/map", "dojo/domReady!"], function(Map) {
+          map = new Map("map", {
+            basemap: "hybrid",
+            center: [-74.098253, 4.647660],
+            zoom: 18
+          });
+        });
+    </script>
     ARCGIS. -->
+    
   
 </body>
 </html>

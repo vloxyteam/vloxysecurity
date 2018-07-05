@@ -16,7 +16,23 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('notification-alert', require('./components/NotificationAlert.vue'));
+Vue.component('notification-lpr', require('./components/Notification-lpr.vue'));
+Vue.component('mapAlert-lpr', require('./components/MapAlert-lpr.vue')); 
+Vue.component('camera-info', require('./components/camera-info.vue')); 
+
 
 const app = new Vue({
     el: '#app'
+    //,
+    //created()
+    //{
+      //  console.log('Inicio...');
+        //alert('alerta de inicio de evento');
+        //Echo.channel('channelDemoEvent')
+        //.listen('eventTrigger',(e)=>{
+          //  alert('Evento ejecutado');
+            //console.log('Perfecto.....');            
+        //});
+    //}
 });

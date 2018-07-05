@@ -1,4 +1,6 @@
 <?php
+use  App\Events\eventTrigger;
+use App\NotificationLpr;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +21,25 @@ Route::get('/camera/{cameraId?}','CamerasController@show');
 Route::get('/camera/{cameraId?}/edit','CamerasController@edit');
 Route::post('/camera/{cameraId?}/delete','CamerasController@destroy');
 Route::get('/lprMaps','lprMapsController@index');
+Route::get('/licenseplate','licenseplateController@index');
+Route::post('/licenseplate','licenseplateController@show');
+Route::get('/notificationlpr/{slug?}/edit','licenseplateController@edit');
+
+                            
+
+Route::get('/alertbox',function(){
+    return view('eventListener');   
+});
+
+Route::get('/fireEvent',function(){
+    //$notLPR = new NotificationLpr(array(
+    //    'id' => 1,            
+    //    'licensePlateText' => 'ABC-123',        
+    //));
+    event(new eventTrigger('ABC-123'));   
+    return 'Placa enviada';
+});
+
 
 
 

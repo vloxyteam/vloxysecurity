@@ -373,7 +373,20 @@ desired effect
 <!-- AdminLTE App -->
 <script src="{{ URL::asset('adminlte/js/adminlte.min.js')}}"></script>
 
+
+
 <script src="{{ URL::asset('js/app.js')}}"></script>
+
+<!--Script de pruebas para video
+<script src="https://cdn.bootcss.com/babel-polyfill/7.0.0-beta.2/polyfill.min.js"></script>
+<script src="{{ URL::asset('js/streamedian.min.js')}}"></script>
+<script>
+    var p = Streamedian.player('test_video', {socket:  "ws://127.0.0.1:8088/ws/"})
+</script>
+-->
+
+
+<!--Script de pruebas para video-->
 
 
 

@@ -25,6 +25,7 @@ Route::get('/licenseplate','licenseplateController@index');
 Route::post('/licenseplate','licenseplateController@show');
 Route::get('/notificationlpr/{slug?}/edit','licenseplateController@edit');
 Route::get('/rtsp','rtspController@index');
+Route::get('/rtsp/grid','rtspController@indexgrid');
 
                             
 

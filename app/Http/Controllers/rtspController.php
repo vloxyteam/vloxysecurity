@@ -13,12 +13,26 @@ class rtspController extends Controller
      */
     public function index()
     {
+        //Establecer el metodo que busque las camaras que quiero mostrar
+        //De momento se lista la siguiente informacion
         $listas = array('rtsp://admin:vloxy123@192.168.1.108:554/cam/realmonitor?channel=1&subtype=0',
          'rtsp://admin:vloxy123@192.168.1.108:554/cam/realmonitor?channel=2&subtype=0', 
          'rtsp://admin:vloxy123@192.168.1.108:554/cam/realmonitor?channel=3&subtype=0',
          'rtsp://admin:vloxy123@192.168.1.108:554/cam/realmonitor?channel=4&subtype=0');
 
         return view('viewcameras.index', compact('listas'));
+    }
+
+    public function indexgrid()
+    {
+        //Establecer el metodo que busque las camaras que quiero mostrar
+        //De momento se lista la siguiente informacion
+        $listas = array('rtsp://admin:vloxy123@192.168.1.108:554/cam/realmonitor?channel=1&subtype=0',
+         'rtsp://admin:vloxy123@192.168.1.108:554/cam/realmonitor?channel=2&subtype=0', 
+         'rtsp://admin:vloxy123@192.168.1.108:554/cam/realmonitor?channel=3&subtype=0',
+         'rtsp://admin:vloxy123@192.168.1.108:554/cam/realmonitor?channel=4&subtype=0');
+
+        return view('viewcameras.indexgrid', compact('listas'));
     }
 
     /**

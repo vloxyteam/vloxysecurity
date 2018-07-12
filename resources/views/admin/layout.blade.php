@@ -26,6 +26,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="{{ URL::asset('adminlte/css/skins/skin-blue.min.css')}}">
+
+  <!--Configuracion para SALVATTORE-->
+  <link rel="stylesheet" href="{{ URL::asset('salvattore.css')}}">
+
+  <!--Agentes -->
+
   <!-- Configuracion de ARCGIS. 
   <link rel="stylesheet" href="https://js.arcgis.com/3.24/esri/css/esri.css">
   <link rel="stylesheet" href="https://js.arcgis.com/3.24/dijit/themes/nihilo/nihilo.css"> 
@@ -374,21 +380,18 @@ desired effect
 <script src="{{ URL::asset('adminlte/js/adminlte.min.js')}}"></script>
 
 
-
-<script src="{{ URL::asset('js/app.js')}}"></script>
-
 <!--Script de pruebas para video
 <script src="https://cdn.bootcss.com/babel-polyfill/7.0.0-beta.2/polyfill.min.js"></script>
 <script src="{{ URL::asset('js/streamedian.min.js')}}"></script>
 <script>
     var p = Streamedian.player('test_video', {socket:  "ws://127.0.0.1:8088/ws/"})
-</script>
+</script> 
 -->
 
+<!-- The script must be included at the bottom of the body to work -->
+<script src="{{ URL::asset('js/salvattore.min.js')}}"></script>
 
-<!--Script de pruebas para video-->
-
-
+<script src="{{ URL::asset('js/app.js')}}"></script>
 
 
 
@@ -396,19 +399,7 @@ desired effect
      Both of these plugins are recommended to enhance the
      user experience. -->
 
-<!--SCRIPT PARA 
-<script src="https://js.arcgis.com/3.24/"></script>
-    <script>
-      var map;
-        require(["esri/map", "dojo/domReady!"], function(Map) {
-          map = new Map("map", {
-            basemap: "hybrid",
-            center: [-74.098253, 4.647660],
-            zoom: 18
-          });
-        });
-    </script>
-    ARCGIS. -->
+
     
   
 </body>
